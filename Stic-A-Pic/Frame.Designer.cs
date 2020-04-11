@@ -136,6 +136,7 @@
 			this.photoLabel.Size = new System.Drawing.Size(258, 43);
 			this.photoLabel.TabIndex = 1;
 			this.photoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.photoLabel.UseMnemonic = false;
 			this.photoLabel.DoubleClick += new System.EventHandler(this.PhotoLabel_DoubleClick);
 			this.photoLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PhotoLabel_MouseDown);
 			// 

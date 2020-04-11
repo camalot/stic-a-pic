@@ -171,6 +171,7 @@ namespace Photoroid {
 			if ( Settings.Font.Italic ) {
 				style &= FontStyle.Italic;
 			}
+			fd.Color = Color.FromArgb ( Settings.Font.Color );
 			fd.Font = new Font ( Settings.Font.Name, Settings.Font.Size, style, GraphicsUnit.Point );
 			if ( fd.ShowDialog ( ) == DialogResult.OK ) {
 				Settings.Font.Name = fd.Font.FontFamily.Name;
