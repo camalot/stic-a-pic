@@ -24,8 +24,9 @@
 		/// </summary>
 		private void InitializeComponent ( ) {
 			this.ok = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.labelText = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.cancel = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// ok
@@ -38,12 +39,12 @@
 			this.ok.UseVisualStyleBackColor = true;
 			this.ok.Click += new System.EventHandler(this.Ok_Click);
 			// 
-			// textBox1
+			// labelText
 			// 
-			this.textBox1.Location = new System.Drawing.Point(53, 12);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(359, 20);
-			this.textBox1.TabIndex = 1;
+			this.labelText.Location = new System.Drawing.Point(53, 12);
+			this.labelText.Name = "labelText";
+			this.labelText.Size = new System.Drawing.Size(359, 20);
+			this.labelText.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -54,14 +55,26 @@
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Label";
 			// 
+			// cancel
+			// 
+			this.cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cancel.Location = new System.Drawing.Point(256, 50);
+			this.cancel.Name = "cancel";
+			this.cancel.Size = new System.Drawing.Size(75, 23);
+			this.cancel.TabIndex = 3;
+			this.cancel.Text = "&Cancel";
+			this.cancel.UseVisualStyleBackColor = true;
+			// 
 			// SetLabelForm
 			// 
 			this.AcceptButton = this.ok;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.cancel;
 			this.ClientSize = new System.Drawing.Size(424, 78);
+			this.Controls.Add(this.cancel);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.labelText);
 			this.Controls.Add(this.ok);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.MaximizeBox = false;
@@ -77,7 +90,8 @@
 		#endregion
 
 		private System.Windows.Forms.Button ok;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox labelText;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button cancel;
 	}
 }

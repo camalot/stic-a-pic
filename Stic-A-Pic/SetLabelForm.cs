@@ -10,12 +10,17 @@ using System.Windows.Forms;
 
 namespace Photoroid {
 	public partial class SetLabelForm : Form {
-		public SetLabelForm ( ) {
+		public SetLabelForm ( string label ) {
 			InitializeComponent ( );
-			this.textBox1.Focus ( );
+			this.labelText.Text = label;
 		}
 
-		public string LabelText { get { return this.textBox1.Text;  } }
+		protected override void OnShown ( EventArgs e ) {
+			this.labelText.Focus();
+			base.OnShown ( e );
+		}
+
+		public string LabelText { get { return this.labelText.Text;  } }
 
 		private void Ok_Click ( object sender, EventArgs e ) {
 			this.DialogResult = DialogResult.OK;
