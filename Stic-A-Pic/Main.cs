@@ -114,7 +114,8 @@ namespace Photoroid {
 				Website = "http://darthminos.tv"
 			};
 
-
+			var test = Newtonsoft.Json.JsonConvert.SerializeObject ( manifest );
+			Console.WriteLine ( test );
 			// copy updater to temp dir
 			var updaterPath = new DirectoryInfo ( Path.Combine ( dirName, "updater" ) );
 			var tempPath = Path.Combine ( Path.GetTempPath ( ), "Stic-A-Pic");

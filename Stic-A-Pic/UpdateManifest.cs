@@ -21,6 +21,8 @@ namespace Photoroid {
 		public string ProcessName { get; set; } = "Stic-A-Pic";
 		[JsonProperty ( "name" )]
 		public string Name { get; set; } = "Stic-A-Pic";
+		[JsonProperty("moveZipRoot")]
+		public bool MoveZipRoot { get; set; } = true;
 		[JsonProperty ( "website" )]
 		public string Website { get; set; } = "http://darthminos.tv";
 		[JsonProperty ( "kill" )]
