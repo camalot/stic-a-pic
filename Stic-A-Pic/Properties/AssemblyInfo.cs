@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ( "Stic-A-Pic" )]
-[assembly: AssemblyDescription ( "" )]
+[assembly: AssemblyDescription ( "A simple desktop application to pin photos to your desktop." )]
 [assembly: AssemblyConfiguration ( "" )]
 [assembly: AssemblyCompany ( "Darth Minos" )]
 [assembly: AssemblyProduct ( "Stic-A-Pic" )]

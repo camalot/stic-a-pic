@@ -17,6 +17,7 @@ namespace Photoroid {
 			this.labelCopyright.Text = AssemblyCopyright;
 			this.labelCompanyName.Text = AssemblyCompany;
 			this.textBoxDescription.Text = AssemblyDescription;
+			this.StartPosition = FormStartPosition.CenterScreen;
 		}
 
 		#region Assembly Attribute Accessors
