@@ -11,12 +11,11 @@ namespace Photoroid {
 	partial class AboutBox : Form {
 		public AboutBox ( ) {
 			InitializeComponent ( );
-			this.Text = String.Format ( "About {0}", AssemblyTitle );
+			this.Text = $"About {AssemblyTitle} v{AssemblyVersion}";
 			this.labelProductName.Text = AssemblyProduct;
-			this.labelVersion.Text = String.Format ( "Version {0}", AssemblyVersion );
+			this.labelVersion.Text = $"Version: v{AssemblyVersion}";
 			this.labelCopyright.Text = AssemblyCopyright;
 			this.labelCompanyName.Text = AssemblyCompany;
-			this.textBoxDescription.Text = AssemblyDescription;
 			this.StartPosition = FormStartPosition.CenterScreen;
 		}
 
@@ -81,5 +80,21 @@ namespace Photoroid {
 			}
 		}
 		#endregion
+
+		private void SupportGithub_Click ( object sender, EventArgs e ) {
+			System.Diagnostics.Process.Start ( "https://github.com/sponsors/camalot" );
+		}
+
+		private void SupportTwitch_Click ( object sender, EventArgs e ) {
+			System.Diagnostics.Process.Start ( "https://www.twitch.tv/products/darthminos" );
+		}
+
+		private void SupportPaypal_Click ( object sender, EventArgs e ) {
+			System.Diagnostics.Process.Start ( "https://paypal.me/camalotdesigns/10" );
+		}
+
+		private void SupportPatreon_Click ( object sender, EventArgs e ) {
+			System.Diagnostics.Process.Start ( "https://patreon.com/darthminos" );
+		}
 	}
 }

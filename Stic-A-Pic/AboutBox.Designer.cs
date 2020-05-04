@@ -29,10 +29,15 @@
 			this.labelVersion = new System.Windows.Forms.Label();
 			this.labelCopyright = new System.Windows.Forms.Label();
 			this.labelCompanyName = new System.Windows.Forms.Label();
-			this.textBoxDescription = new System.Windows.Forms.TextBox();
 			this.okButton = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.supportGithub = new System.Windows.Forms.Button();
+			this.supportTwitch = new System.Windows.Forms.Button();
+			this.supportPaypal = new System.Windows.Forms.Button();
+			this.supportPatreon = new System.Windows.Forms.Button();
 			this.tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel
@@ -45,8 +50,8 @@
 			this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
 			this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
 			this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
-			this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
 			this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
+			this.tableLayoutPanel.Controls.Add(this.panel1, 1, 4);
 			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel.Location = new System.Drawing.Point(9, 9);
 			this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -54,8 +59,8 @@
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.924528F));
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.69811F));
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
 			this.tableLayoutPanel.Size = new System.Drawing.Size(417, 265);
 			this.tableLayoutPanel.TabIndex = 0;
@@ -120,20 +125,6 @@
 			this.labelCompanyName.Text = "Company Name";
 			this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// textBoxDescription
-			// 
-			this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBoxDescription.Location = new System.Drawing.Point(143, 107);
-			this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-			this.textBoxDescription.Multiline = true;
-			this.textBoxDescription.Name = "textBoxDescription";
-			this.textBoxDescription.ReadOnly = true;
-			this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
-			this.textBoxDescription.TabIndex = 23;
-			this.textBoxDescription.TabStop = false;
-			this.textBoxDescription.Text = "Description";
-			// 
 			// okButton
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -143,6 +134,71 @@
 			this.okButton.Size = new System.Drawing.Size(75, 23);
 			this.okButton.TabIndex = 24;
 			this.okButton.Text = "&OK";
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.supportPatreon);
+			this.panel1.Controls.Add(this.supportPaypal);
+			this.panel1.Controls.Add(this.supportTwitch);
+			this.panel1.Controls.Add(this.supportGithub);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(140, 102);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(274, 131);
+			this.panel1.TabIndex = 25;
+			// 
+			// supportGithub
+			// 
+			this.supportGithub.BackColor = System.Drawing.Color.White;
+			this.supportGithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.supportGithub.ForeColor = System.Drawing.Color.Black;
+			this.supportGithub.Location = new System.Drawing.Point(67, 3);
+			this.supportGithub.Name = "supportGithub";
+			this.supportGithub.Size = new System.Drawing.Size(124, 23);
+			this.supportGithub.TabIndex = 0;
+			this.supportGithub.Text = "💜 Support on Github";
+			this.supportGithub.UseVisualStyleBackColor = false;
+			this.supportGithub.Click += new System.EventHandler(this.SupportGithub_Click);
+			// 
+			// supportTwitch
+			// 
+			this.supportTwitch.BackColor = System.Drawing.Color.SlateBlue;
+			this.supportTwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.supportTwitch.ForeColor = System.Drawing.Color.White;
+			this.supportTwitch.Location = new System.Drawing.Point(67, 32);
+			this.supportTwitch.Name = "supportTwitch";
+			this.supportTwitch.Size = new System.Drawing.Size(124, 23);
+			this.supportTwitch.TabIndex = 1;
+			this.supportTwitch.Text = "💜 Support on Twitch";
+			this.supportTwitch.UseVisualStyleBackColor = false;
+			this.supportTwitch.Click += new System.EventHandler(this.SupportTwitch_Click);
+			// 
+			// supportPaypal
+			// 
+			this.supportPaypal.BackColor = System.Drawing.Color.RoyalBlue;
+			this.supportPaypal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.supportPaypal.ForeColor = System.Drawing.Color.White;
+			this.supportPaypal.Location = new System.Drawing.Point(67, 61);
+			this.supportPaypal.Name = "supportPaypal";
+			this.supportPaypal.Size = new System.Drawing.Size(124, 23);
+			this.supportPaypal.TabIndex = 2;
+			this.supportPaypal.Text = "💜 Support on Paypal";
+			this.supportPaypal.UseVisualStyleBackColor = false;
+			this.supportPaypal.Click += new System.EventHandler(this.SupportPaypal_Click);
+			// 
+			// supportPatreon
+			// 
+			this.supportPatreon.BackColor = System.Drawing.Color.DarkRed;
+			this.supportPatreon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.supportPatreon.ForeColor = System.Drawing.Color.White;
+			this.supportPatreon.Location = new System.Drawing.Point(67, 90);
+			this.supportPatreon.Name = "supportPatreon";
+			this.supportPatreon.Size = new System.Drawing.Size(124, 23);
+			this.supportPatreon.TabIndex = 3;
+			this.supportPatreon.Text = "💜 Support on Patreon";
+			this.supportPatreon.UseVisualStyleBackColor = false;
+			this.supportPatreon.Visible = false;
+			this.supportPatreon.Click += new System.EventHandler(this.SupportPatreon_Click);
 			// 
 			// AboutBox
 			// 
@@ -159,10 +215,10 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "AboutBox1";
+			this.Text = "About Box";
 			this.tableLayoutPanel.ResumeLayout(false);
-			this.tableLayoutPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -175,7 +231,11 @@
 		private System.Windows.Forms.Label labelVersion;
 		private System.Windows.Forms.Label labelCopyright;
 		private System.Windows.Forms.Label labelCompanyName;
-		private System.Windows.Forms.TextBox textBoxDescription;
 		private System.Windows.Forms.Button okButton;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Button supportPatreon;
+		private System.Windows.Forms.Button supportPaypal;
+		private System.Windows.Forms.Button supportTwitch;
+		private System.Windows.Forms.Button supportGithub;
 	}
 }
