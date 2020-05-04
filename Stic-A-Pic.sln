@@ -19,10 +19,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{6D0C13CA
 		Build\appveyor.before-build.ps1 = Build\appveyor.before-build.ps1
 		Build\appveyor.before-deployment.ps1 = Build\appveyor.before-deployment.ps1
 		Build\appveyor.before-package.ps1 = Build\appveyor.before-package.ps1
+		appveyor.yml = appveyor.yml
 		Build\Build.msbuild = Build\Build.msbuild
 		Build\MSBuild.Community.Tasks.dll = Build\MSBuild.Community.Tasks.dll
 		Build\MSBuild.Community.Tasks.targets = Build\MSBuild.Community.Tasks.targets
+		Build\MSBuild.Release.Tasks.dll = Build\MSBuild.Release.Tasks.dll
+		Build\MSBuild.Release.Tasks.pdb = Build\MSBuild.Release.Tasks.pdb
+		Build\MSBuildReleaseTasts.targets = Build\MSBuildReleaseTasts.targets
+		Build\Newtonsoft.Json.dll = Build\Newtonsoft.Json.dll
+		Build\Newtonsoft.Json.xml = Build\Newtonsoft.Json.xml
 		Build\SharedProperties.msbuild = Build\SharedProperties.msbuild
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{9283EB20-3E03-4E62-9100-33C1F74FCFBF}"
+	ProjectSection(SolutionItems) = preProject
+		.github\FUNDING.yml = .github\FUNDING.yml
 	EndProjectSection
 EndProject
 Global

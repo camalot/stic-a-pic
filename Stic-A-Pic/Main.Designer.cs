@@ -29,10 +29,10 @@
 			this.addPhotoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
 			this.aboutSticAPicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-			this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainContextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -65,6 +65,14 @@
 			this.aboutSticAPicToolStripMenuItem.Name = "aboutSticAPicToolStripMenuItem";
 			this.aboutSticAPicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.aboutSticAPicToolStripMenuItem.Text = "About &Stic-A-Pic";
+			this.aboutSticAPicToolStripMenuItem.Click += new System.EventHandler(this.AboutSticAPicToolStripMenuItem_Click);
+			// 
+			// checkForUpdatesToolStripMenuItem
+			// 
+			this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+			this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.checkForUpdatesToolStripMenuItem.Text = "Check For &Updates";
+			this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem1
 			// 
@@ -84,13 +92,6 @@
 			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
 			this.notifyIcon.Text = "Stic-A-Pic";
 			this.notifyIcon.Visible = true;
-			// 
-			// checkForUpdatesToolStripMenuItem
-			// 
-			this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-			this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.checkForUpdatesToolStripMenuItem.Text = "Check For &Updates";
-			this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
 			// 
 			// Main
 			// 

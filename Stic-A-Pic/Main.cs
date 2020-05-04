@@ -146,5 +146,10 @@ namespace Photoroid {
 			psi.FileName = executer;
 			Process.Start ( psi );
 		}
+
+		private void AboutSticAPicToolStripMenuItem_Click ( object sender, EventArgs e ) {
+			var about = new AboutBox ( );
+			about.ShowDialog ( );
+		}
 	}
 }
