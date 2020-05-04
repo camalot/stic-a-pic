@@ -99,7 +99,10 @@ namespace Photoroid {
 			var app = Application.ExecutablePath;
 			var dirName = System.IO.Path.GetDirectoryName ( app );
 			var dir = new DirectoryInfo ( dirName );
-			var version = new Semver.SemVersion ( Assembly.GetExecutingAssembly ( ).GetName ( ).Version );
+			var appVersion = Assembly.GetExecutingAssembly ( ).GetName ( ).Version;
+			Console.WriteLine ( $"Application Version: {appVersion}" );
+			var version = new Semver.SemVersion ( appVersion.Major, appVersion.Minor, appVersion.Build );
+			Console.WriteLine ( $"Version: {version}" );
 			var manifest = new UpdateManifest ( ) {
 				Application = app,
 				Version = version.ToString ( ),

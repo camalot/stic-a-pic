@@ -9,7 +9,6 @@
 		<SharedProperties>SharedProperties</SharedProperties>
 		<Major>1</Major>
 		<Minor>0</Minor>
-		<Build>0</Build>
 		<Revision>0</Revision>
 		<APPVEYOR Condition=" '$(APPVEYOR)' == '' ">False</APPVEYOR>
 		<APPVEYOR_BUILD_NUMBER Condition=" '$(APPVEYOR_BUILD_NUMBER)' == '' ">0</APPVEYOR_BUILD_NUMBER>
