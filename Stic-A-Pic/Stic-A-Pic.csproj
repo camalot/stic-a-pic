@@ -77,8 +77,8 @@
       <DependentUpon>SetLabelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateManifest.cs" />
-		<Compile Condition=" !Exists('Shared\AssemblyVersionInfo.cs') " Include="Properties\AssemblyVersionInfo.cs" />
-		<Compile Condition=" Exists('Shared\AssemblyVersionInfo.cs') " Include="Shared\AssemblyVersionInfo.cs" />
+		<Compile Condition=" !Exists('..\Shared\AssemblyVersionInfo.cs') " Include="Properties\AssemblyVersionInfo.cs" />
+		<Compile Condition=" Exists('..\Shared\AssemblyVersionInfo.cs') " Include="..\Shared\AssemblyVersionInfo.cs" />
 		<EmbeddedResource Include="Frame.resx">
       <DependentUpon>Frame.cs</DependentUpon>
     </EmbeddedResource>
