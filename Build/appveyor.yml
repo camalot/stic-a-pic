@@ -1,0 +1,73 @@
+version: 2.0.{build}
+skip_tags: true
+image: Visual Studio 2019
+before_build:
+- ps: >-
+    $rootLocation = ((Get-Item Env:\APPVEYOR_BUILD_FOLDER).Value);  
+
+    Set-Location $rootLocation | Out-Null;  
+
+    nuget restore;  
+
+    $rootLocation = ((Get-Item Env:\APPVEYOR_BUILD_FOLDER).Value);  
+
+    Set-Location $rootLocation\ApplicationUpdater | Out-Null;  
+
+    ..\Build\appveyor.before-build.ps1;  
+
+    Set-Location $rootLocation | Out-Null;  
+
+build:
+  project: ./Build/Build.msbuild
+  verbosity: normal
+before_package:
+- ps: >-
+    $rootLocation = ((Get-Item Env:\APPVEYOR_BUILD_FOLDER).Value);  
+
+    Set-Location $rootLocation\Stic-A-Pic | Out-Null;  
+
+    ..\Build\appveyor.before-package.ps1;  
+
+    Set-Location $rootLocation | Out-Null;  
+
+after_build:
+- ps: >-
+    $rootLocation = ((Get-Item Env:\APPVEYOR_BUILD_FOLDER).Value);  
+
+    Set-Location "$rootLocation\Stic-A-Pic" | Out-Null;  
+
+    ..\Build\appveyor.after-build.ps1;  
+
+    Set-Location $rootLocation | Out-Null;  
+
+artifacts:
+- path: 'dist\**\*.zip'
+  name: Zips
+before_deploy:
+- ps: >-
+    $rootLocation = ((Get-Item Env:\APPVEYOR_BUILD_FOLDER).Value);  
+
+    Set-Location $rootLocation\Stic-A-Pic | Out-Null;  
+
+    ..\Build\appveyor.before-deployment.ps1;  
+
+    Set-Location $rootLocation | Out-Null;  
+
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
+  artifact: Zips
+  force_update: true
+  on:
+    CI_DEPLOY_GITHUB: True
+after_deploy:
+- ps: >-
+    $rootLocation = ((Get-Item Env:\APPVEYOR_BUILD_FOLDER).Value);  
+
+    Set-Location $rootLocation\Stic-A-Pic | Out-Null;   
+
+    ..\Build\appveyor.after-deployment.ps1;  
+
+    Set-Location $rootLocation | Out-Null;  
+
