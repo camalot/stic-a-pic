@@ -40,7 +40,7 @@
 	<Target Name="AssemblyInfo"
 						Outputs="$(MSBuildProjectDirectory)\..\Shared\AssemblyVersionInfo.cs"
 						Condition=" '$(CI_BUILD_VERSION)' != '' ">
-
+		<Message Text="Version: $(CI_BUILD_VERSION)" />
 		<AssemblyInfo CodeLanguage="CS"
 									AssemblyFileVersion="$(CI_BUILD_VERSION)"
 									AssemblyVersion="$(CI_BUILD_VERSION)"
