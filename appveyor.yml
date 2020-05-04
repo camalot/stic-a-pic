@@ -11,7 +11,7 @@ before_build:
 
     $rootLocation = ((Get-Item Env:\APPVEYOR_BUILD_FOLDER).Value);  
 
-    Set-Location $rootLocation\ApplicationUpdater | Out-Null;  
+    Set-Location $rootLocation\Stic-A-Pic | Out-Null;  
 
     ..\Build\appveyor.before-build.ps1;  
 
