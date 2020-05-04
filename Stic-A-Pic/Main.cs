@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -91,6 +93,54 @@ namespace Photoroid {
 		private void Frame_SaveSettings ( object sender, EventArgs e ) {
 			var frame = (Frame)sender;
 			Frames.Remove ( frame );
+		}
+
+		private void CheckForUpdatesToolStripMenuItem_Click ( object sender, EventArgs e ) {
+			var app = Application.ExecutablePath;
+			var dirName = System.IO.Path.GetDirectoryName ( app );
+			var dir = new DirectoryInfo ( dirName );
+			var version = new Semver.SemVersion ( Assembly.GetExecutingAssembly ( ).GetName ( ).Version );
+			var manifest = new UpdateManifest ( ) {
+				Application = app,
+				Version = version.ToString ( ),
+				FolderName = dir.Name,
+				Path = dir.Parent.FullName,
+				ProcessName = Path.GetFileNameWithoutExtension ( app ),
+				RequiresRestart = true,
+				Kill = new string[0],
+				Website = "http://darthminos.tv"
+			};
+
+
+			// copy updater to temp dir
+			var updaterPath = new DirectoryInfo ( Path.Combine ( dirName, "updater" ) );
+			var tempPath = Path.Combine ( Path.GetTempPath ( ), "Stic-A-Pic");
+			if(Directory.Exists(tempPath)) {
+				Directory.Delete ( tempPath, true );
+			}
+
+			var tempDir = Directory.CreateDirectory ( tempPath);
+
+			foreach(var f in updaterPath.GetFiles("**", SearchOption.AllDirectories)) {
+				var newDest = f.FullName.Replace ( updaterPath.FullName, tempPath );
+				Console.Write ( newDest );
+				var dirPath = Path.GetDirectoryName ( newDest );
+				if(!Directory.Exists(dirPath)) {
+					Directory.CreateDirectory ( dirPath );
+				}
+				Console.WriteLine ( $"Copy {f.FullName} => {newDest}" );
+				File.Copy ( f.FullName, newDest );
+			}
+
+			var executer = Path.Combine ( tempPath, "ApplicationUpdater.exe" );
+			using (var sw = new StreamWriter(Path.Combine( tempPath, "update.manifest" ), false, Encoding.UTF8 )) {
+				var ser = new JsonSerializer ( );
+				ser.Serialize ( sw, manifest );
+			}
+
+			var psi = new ProcessStartInfo ( );
+			psi.FileName = executer;
+			Process.Start ( psi );
 		}
 	}
 }

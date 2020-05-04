@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14" DefaultTargets="Build">
+	<Import Project="$(MSBuildProjectDirectory)\SharedProperties.msbuild" Condition="'$(SharedProperties)' != 'SharedProperties' " />
+	<Import Project="$(MSBuildExtendedTasksTargets)" Condition="Exists($(MSBuildExtendedTasksTargets))" />
+	<Import Project="$(MSBuildProjectDirectory)\MSBuild.Release.Tasks.targets"/>
+	
+	<PropertyGroup>
+		<Project Condition=" '$(Project)' == '' ">Stic-A-Pic</Project>
+		<Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<MSBuildProperties>Configuration=$(Configuration);Platform=$(Platform);VisualStudioVersion=16.0</MSBuildProperties>
+		<OutputPath Condition=" '$(OutputPath)' == '' ">.\bin\$(Configuration)</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectsToBuild Include="$(MSBuildProjectDirectory)\..\$(Project)\**\*.csproj" />
+		
+	</ItemGroup>
+
+	<Target Name="Build" DependsOnTargets="CleanBuild;AssemblyInfo;BuildApplication;ZipRelease">
+	</Target>
+
+	<Target Name="CleanBuild" DependsOnTargets="CleanObj">
+		<RemoveDir Directories="$(OutputPath)" Condition="Exists('$(OutputPath)')" ContinueOnError="true" />
+		<MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+	</Target>
+
+	<Target Name="CleanObj">
+		<RemoveDir Directories="$(MSBuildProjectDirectory)\..\$(CI_PROJECT_NAME)\obj" Condition="Exists('$(MSBuildProjectDirectory)\..\$(CI_PROJECT_NAME)\obj')" ContinueOnError="false" />
+	</Target>
+
+	<Target Name="BuildApplication">
+		<MSBuild Projects ="@(ProjectsToBuild)" ContinueOnError="false"
+						 Properties="$(MSBuildProperties);SharedProperties=SharedProperties" Targets="Clean;Build" RunEachTargetSeparately="true" UseResultsCache="false">
+			<Output ItemName="OutputFiles" TaskParameter="TargetOutputs"/>
+		</MSBuild>
+	</Target>
+
+
+	<Target Name="AssemblyInfo"
+						Outputs="$(MSBuildProjectDirectory)\..\Shared\AssemblyVersionInfo.cs"
+						Condition=" '$(CI_BUILD_VERSION)' != '' ">
+
+		<AssemblyInfo CodeLanguage="CS"
+									AssemblyFileVersion="$(CI_BUILD_VERSION)"
+									AssemblyVersion="$(CI_BUILD_VERSION)"
+									OutputFile="$(MSBuildProjectDirectory)\..\Shared\AssemblyVersionInfo.cs"
+									/>
+	</Target>
+
+	<Target Name="DownloadUpdater">
+		<MakeDir Directories="..\$(Project)\$(OutputPath)\updater" Condition="!Exists('..\$(Project)\$(OutputPath)\updater')" />
+		<GetGithubReleaseDownload RepoName="ChatbotScriptUpdater" RepoOwner="camalot"
+															AssetNamePattern="^ApplicationUpdater\.Invoker\.(.*?)\.zip$"
+															DownloadFileName="ApplicationUpdater.zip"
+															DownloadPath="..\$(Project)\$(OutputPath)\updater">
+			<Output PropertyName="DownloadedFile" TaskParameter="DownloadedFile" />
+		</GetGithubReleaseDownload>
+		
+		<Unzip ZipFileName="$(DownloadedFile)" TargetDirectory="..\$(Project)\$(OutputPath)\updater" />
+		<Delete Files="$(DownloadedFile)" />
+	</Target>
+	
+	<Target Name="ZipRelease" DependsOnTargets="DownloadUpdater">
+		<CreateItem Include="$(MSBuildProjectDirectory)\..\$(Project)\$(OutputPath)\**\*.*" 
+								Exclude="$(MSBuildProjectDirectory)\..\$(Project)\$(OutputPath)\**\*.zip;$(MSBuildProjectDirectory)\..\$(Project)\$(OutputPath)\**\*.xml;$(MSBuildProjectDirectory)\..\$(Project)\$(OutputPath)\**\*.manifest;$(MSBuildProjectDirectory)\..\$(Project)\$(OutputPath)\**\*.json;">
+			<Output ItemName="AppZipFiles" TaskParameter="Include" />
+		</CreateItem>
+
+		<Message Text="$(OutputPath)\**\*.*" Importance="high" />
+		<Message Text="AppZipFiles: $(AppZipFiles)" Importance="high" />
+		
+		<CreateProperty Value="$(MSBuildProjectDirectory)\..\dist\$(CI_SEMVERSION)\$(CI_PROJECT_NAME).$(CI_SEMVERSION).zip">
+			<Output PropertyName="OutZipFileName" TaskParameter="Value"/>
+		</CreateProperty>
+		
+		
+		<Zip Comment="$(CI_PROJECT_NAME) version $(CI_SEMVERSION)" Files="@(AppZipFiles)"
+				 WorkingDirectory="$(MSBuildProjectDirectory)\..\$(Project)\$(OutputPath)\"
+				 ZipFileName="$(OutZipFileName)" ZipLevel="9" Flatten="False" />
+	</Target>
+</Project>

@@ -32,6 +32,7 @@
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainContextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -41,38 +42,39 @@
             this.addPhotoToolStripMenuItem,
             this.toolStripMenuItem2,
             this.aboutSticAPicToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem,
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
 			this.mainContextMenuStrip.Name = "contextMenuStrip1";
-			this.mainContextMenuStrip.Size = new System.Drawing.Size(164, 82);
+			this.mainContextMenuStrip.Size = new System.Drawing.Size(181, 126);
 			// 
 			// addPhotoToolStripMenuItem
 			// 
 			this.addPhotoToolStripMenuItem.Name = "addPhotoToolStripMenuItem";
-			this.addPhotoToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+			this.addPhotoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.addPhotoToolStripMenuItem.Text = "&Add Photo";
 			this.addPhotoToolStripMenuItem.Click += new System.EventHandler(this.AddPhotoToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem2
 			// 
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 6);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
 			// 
 			// aboutSticAPicToolStripMenuItem
 			// 
 			this.aboutSticAPicToolStripMenuItem.Name = "aboutSticAPicToolStripMenuItem";
-			this.aboutSticAPicToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+			this.aboutSticAPicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.aboutSticAPicToolStripMenuItem.Text = "About &Stic-A-Pic";
 			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(160, 6);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
 			// 
@@ -82,6 +84,13 @@
 			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
 			this.notifyIcon.Text = "Stic-A-Pic";
 			this.notifyIcon.Visible = true;
+			// 
+			// checkForUpdatesToolStripMenuItem
+			// 
+			this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+			this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.checkForUpdatesToolStripMenuItem.Text = "Check For &Updates";
+			this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
 			// 
 			// Main
 			// 
@@ -106,5 +115,6 @@
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem aboutSticAPicToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
 	}
 }

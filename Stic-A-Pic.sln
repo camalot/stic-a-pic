@@ -5,6 +5,26 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stic-A-Pic", "Stic-A-Pic\Stic-A-Pic.csproj", "{81E7F88B-2BD6-4B51-81DB-D9FBC65C8D05}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{55B43413-CA75-42CC-A98E-6B59D42737B9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{6D0C13CA-F266-4652-A7E4-13F7B14AE737}"
+	ProjectSection(SolutionItems) = preProject
+		Build\appveyor.after-build.ps1 = Build\appveyor.after-build.ps1
+		Build\appveyor.after-deployment.ps1 = Build\appveyor.after-deployment.ps1
+		Build\appveyor.before-build.ps1 = Build\appveyor.before-build.ps1
+		Build\appveyor.before-deployment.ps1 = Build\appveyor.before-deployment.ps1
+		Build\appveyor.before-package.ps1 = Build\appveyor.before-package.ps1
+		Build\Build.msbuild = Build\Build.msbuild
+		Build\MSBuild.Community.Tasks.dll = Build\MSBuild.Community.Tasks.dll
+		Build\MSBuild.Community.Tasks.targets = Build\MSBuild.Community.Tasks.targets
+		Build\SharedProperties.msbuild = Build\SharedProperties.msbuild
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
