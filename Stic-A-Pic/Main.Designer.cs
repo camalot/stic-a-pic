@@ -33,6 +33,7 @@
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainContextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -41,12 +42,13 @@
 			this.mainContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addPhotoToolStripMenuItem,
             this.toolStripMenuItem2,
+            this.optionsToolStripMenuItem,
             this.aboutSticAPicToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem,
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
 			this.mainContextMenuStrip.Name = "contextMenuStrip1";
-			this.mainContextMenuStrip.Size = new System.Drawing.Size(181, 126);
+			this.mainContextMenuStrip.Size = new System.Drawing.Size(181, 148);
 			// 
 			// addPhotoToolStripMenuItem
 			// 
@@ -92,12 +94,20 @@
 			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
 			this.notifyIcon.Text = "Stic-A-Pic";
 			this.notifyIcon.Visible = true;
+			this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
+			// 
+			// optionsToolStripMenuItem
+			// 
+			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.optionsToolStripMenuItem.Text = "&Options";
+			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItem_Click);
 			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(373, 369);
+			this.ClientSize = new System.Drawing.Size(260, 214);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Main";
 			this.ShowInTaskbar = false;
@@ -117,5 +127,6 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem aboutSticAPicToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 	}
 }

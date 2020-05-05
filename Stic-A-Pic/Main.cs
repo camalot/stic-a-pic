@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 
 namespace Photoroid {
@@ -24,10 +25,7 @@ namespace Photoroid {
 
 			this.Visible = false;
 			Opacity = 0;
-
-
 			LoadSettings ( );
-
 			LoadPhotos ( );
 		}
 
@@ -61,9 +59,11 @@ namespace Photoroid {
 				var serializer = new JsonSerializer ( );
 				var path = System.IO.Path.GetDirectoryName ( Application.ExecutablePath );
 				var fname = Path.Combine ( path, "settings.json" );
-				using ( var sr = new StreamReader ( fname ) ) {
-					using ( var jr = new JsonTextReader ( sr ) ) {
-						this.PhotoGroupSettings = serializer.Deserialize<PhotoGroupSettings> ( jr );
+				if ( File.Exists ( fname ) ) {
+					using ( var sr = new StreamReader ( fname ) ) {
+						using ( var jr = new JsonTextReader ( sr ) ) {
+							this.PhotoGroupSettings = serializer.Deserialize<PhotoGroupSettings> ( jr );
+						}
 					}
 				}
 			} catch {
@@ -75,6 +75,7 @@ namespace Photoroid {
 			base.OnClosed ( e );
 		}
 
+		#region Menu Items
 		private void ExitToolStripMenuItem_Click ( object sender, EventArgs e ) {
 			this.Close ( );
 		}
@@ -96,6 +97,28 @@ namespace Photoroid {
 		}
 
 		private void CheckForUpdatesToolStripMenuItem_Click ( object sender, EventArgs e ) {
+			CheckForUpdates ( );
+		}
+
+		private void AboutSticAPicToolStripMenuItem_Click ( object sender, EventArgs e ) {
+			var options = new Options ( this );
+			options.ShowAbout ( );
+		}
+
+
+		private void OptionsToolStripMenuItem_Click ( object sender, EventArgs e ) {
+			var options = new Options ( this );
+			options.ShowDialog ( );
+		}
+		#endregion
+
+
+		private void NotifyIcon_MouseDoubleClick ( object sender, MouseEventArgs e ) {
+			var options = new Options ( this );
+			options.ShowDialog ( );
+		}
+
+		public void CheckForUpdates ( ) {
 			var app = Application.ExecutablePath;
 			var dirName = System.IO.Path.GetDirectoryName ( app );
 			var dir = new DirectoryInfo ( dirName );
@@ -118,18 +141,23 @@ namespace Photoroid {
 			Console.WriteLine ( test );
 			// copy updater to temp dir
 			var updaterPath = new DirectoryInfo ( Path.Combine ( dirName, "updater" ) );
-			var tempPath = Path.Combine ( Path.GetTempPath ( ), "Stic-A-Pic");
-			if(Directory.Exists(tempPath)) {
+			if ( !updaterPath.Exists ) {
+				Console.WriteLine ( "Updater Path Does Not Exist." );
+				MessageBox.Show ( "Unable to locate the updater. Please make sure you have the latest version.", "Error Updating", MessageBoxButtons.OK, MessageBoxIcon.Error );
+				return;
+			}
+			var tempPath = Path.Combine ( Path.GetTempPath ( ), "Stic-A-Pic" );
+			if ( Directory.Exists ( tempPath ) ) {
 				Directory.Delete ( tempPath, true );
 			}
 
-			var tempDir = Directory.CreateDirectory ( tempPath);
+			var tempDir = Directory.CreateDirectory ( tempPath );
 
-			foreach(var f in updaterPath.GetFiles("**", SearchOption.AllDirectories)) {
+			foreach ( var f in updaterPath.GetFiles ( "**", SearchOption.AllDirectories ) ) {
 				var newDest = f.FullName.Replace ( updaterPath.FullName, tempPath );
 				Console.Write ( newDest );
 				var dirPath = Path.GetDirectoryName ( newDest );
-				if(!Directory.Exists(dirPath)) {
+				if ( !Directory.Exists ( dirPath ) ) {
 					Directory.CreateDirectory ( dirPath );
 				}
 				Console.WriteLine ( $"Copy {f.FullName} => {newDest}" );
@@ -137,7 +165,7 @@ namespace Photoroid {
 			}
 
 			var executer = Path.Combine ( tempPath, "ApplicationUpdater.exe" );
-			using (var sw = new StreamWriter(Path.Combine( tempPath, "update.manifest" ), false, Encoding.UTF8 )) {
+			using ( var sw = new StreamWriter ( Path.Combine ( tempPath, "update.manifest" ), false, Encoding.UTF8 ) ) {
 				var ser = new JsonSerializer ( );
 				ser.Serialize ( sw, manifest );
 			}
@@ -147,9 +175,5 @@ namespace Photoroid {
 			Process.Start ( psi );
 		}
 
-		private void AboutSticAPicToolStripMenuItem_Click ( object sender, EventArgs e ) {
-			var about = new AboutBox ( );
-			about.ShowDialog ( );
-		}
 	}
 }

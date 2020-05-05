@@ -31,10 +31,10 @@
 			this.labelCompanyName = new System.Windows.Forms.Label();
 			this.okButton = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.supportGithub = new System.Windows.Forms.Button();
-			this.supportTwitch = new System.Windows.Forms.Button();
-			this.supportPaypal = new System.Windows.Forms.Button();
 			this.supportPatreon = new System.Windows.Forms.Button();
+			this.supportPaypal = new System.Windows.Forms.Button();
+			this.supportTwitch = new System.Windows.Forms.Button();
+			this.supportGithub = new System.Windows.Forms.Button();
 			this.tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -147,51 +147,12 @@
 			this.panel1.Size = new System.Drawing.Size(274, 131);
 			this.panel1.TabIndex = 25;
 			// 
-			// supportGithub
-			// 
-			this.supportGithub.BackColor = System.Drawing.Color.White;
-			this.supportGithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.supportGithub.ForeColor = System.Drawing.Color.Black;
-			this.supportGithub.Location = new System.Drawing.Point(67, 3);
-			this.supportGithub.Name = "supportGithub";
-			this.supportGithub.Size = new System.Drawing.Size(124, 23);
-			this.supportGithub.TabIndex = 0;
-			this.supportGithub.Text = "💜 Support on Github";
-			this.supportGithub.UseVisualStyleBackColor = false;
-			this.supportGithub.Click += new System.EventHandler(this.SupportGithub_Click);
-			// 
-			// supportTwitch
-			// 
-			this.supportTwitch.BackColor = System.Drawing.Color.SlateBlue;
-			this.supportTwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.supportTwitch.ForeColor = System.Drawing.Color.White;
-			this.supportTwitch.Location = new System.Drawing.Point(67, 32);
-			this.supportTwitch.Name = "supportTwitch";
-			this.supportTwitch.Size = new System.Drawing.Size(124, 23);
-			this.supportTwitch.TabIndex = 1;
-			this.supportTwitch.Text = "💜 Support on Twitch";
-			this.supportTwitch.UseVisualStyleBackColor = false;
-			this.supportTwitch.Click += new System.EventHandler(this.SupportTwitch_Click);
-			// 
-			// supportPaypal
-			// 
-			this.supportPaypal.BackColor = System.Drawing.Color.RoyalBlue;
-			this.supportPaypal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.supportPaypal.ForeColor = System.Drawing.Color.White;
-			this.supportPaypal.Location = new System.Drawing.Point(67, 61);
-			this.supportPaypal.Name = "supportPaypal";
-			this.supportPaypal.Size = new System.Drawing.Size(124, 23);
-			this.supportPaypal.TabIndex = 2;
-			this.supportPaypal.Text = "💜 Support on Paypal";
-			this.supportPaypal.UseVisualStyleBackColor = false;
-			this.supportPaypal.Click += new System.EventHandler(this.SupportPaypal_Click);
-			// 
 			// supportPatreon
 			// 
 			this.supportPatreon.BackColor = System.Drawing.Color.DarkRed;
 			this.supportPatreon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.supportPatreon.ForeColor = System.Drawing.Color.White;
-			this.supportPatreon.Location = new System.Drawing.Point(67, 90);
+			this.supportPatreon.Location = new System.Drawing.Point(67, 96);
 			this.supportPatreon.Name = "supportPatreon";
 			this.supportPatreon.Size = new System.Drawing.Size(124, 23);
 			this.supportPatreon.TabIndex = 3;
@@ -199,6 +160,45 @@
 			this.supportPatreon.UseVisualStyleBackColor = false;
 			this.supportPatreon.Visible = false;
 			this.supportPatreon.Click += new System.EventHandler(this.SupportPatreon_Click);
+			// 
+			// supportPaypal
+			// 
+			this.supportPaypal.BackColor = System.Drawing.Color.RoyalBlue;
+			this.supportPaypal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.supportPaypal.ForeColor = System.Drawing.Color.White;
+			this.supportPaypal.Location = new System.Drawing.Point(67, 67);
+			this.supportPaypal.Name = "supportPaypal";
+			this.supportPaypal.Size = new System.Drawing.Size(124, 23);
+			this.supportPaypal.TabIndex = 2;
+			this.supportPaypal.Text = "💜 Support on Paypal";
+			this.supportPaypal.UseVisualStyleBackColor = false;
+			this.supportPaypal.Click += new System.EventHandler(this.SupportPaypal_Click);
+			// 
+			// supportTwitch
+			// 
+			this.supportTwitch.BackColor = System.Drawing.Color.SlateBlue;
+			this.supportTwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.supportTwitch.ForeColor = System.Drawing.Color.White;
+			this.supportTwitch.Location = new System.Drawing.Point(67, 38);
+			this.supportTwitch.Name = "supportTwitch";
+			this.supportTwitch.Size = new System.Drawing.Size(124, 23);
+			this.supportTwitch.TabIndex = 1;
+			this.supportTwitch.Text = "💜 Support on Twitch";
+			this.supportTwitch.UseVisualStyleBackColor = false;
+			this.supportTwitch.Click += new System.EventHandler(this.SupportTwitch_Click);
+			// 
+			// supportGithub
+			// 
+			this.supportGithub.BackColor = System.Drawing.Color.White;
+			this.supportGithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.supportGithub.ForeColor = System.Drawing.Color.Black;
+			this.supportGithub.Location = new System.Drawing.Point(67, 9);
+			this.supportGithub.Name = "supportGithub";
+			this.supportGithub.Size = new System.Drawing.Size(124, 23);
+			this.supportGithub.TabIndex = 0;
+			this.supportGithub.Text = "💜 Support on Github";
+			this.supportGithub.UseVisualStyleBackColor = false;
+			this.supportGithub.Click += new System.EventHandler(this.SupportGithub_Click);
 			// 
 			// AboutBox
 			// 

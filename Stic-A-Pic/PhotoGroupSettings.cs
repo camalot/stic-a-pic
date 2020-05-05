@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +13,8 @@ namespace Photoroid {
 		}
 		[JsonProperty("photos")]
 		public List<PhotoSettings> Photos { get; set; }
+		[JsonProperty ( "startWithWindows" )]
+		public bool StartWithWindows { get; set; } = false;
 	}
 
 	public class PhotoSettings {
